@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Catálogo Japa Import &times; NKFIT</title>
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: 'Helvetica Neue', Arial, sans-serif; color:#1c1a17; }
+.page { width:210mm; height:297mm; position:relative; page-break-after:always; overflow:hidden; }
+.page:last-child{ page-break-after: auto; }
+
+:root{
+  --preto:#17140f;
+  --branco:#faf7f2;
+  --bege:#ede3d3;
+  --marrom:#5c4630;
+  --dourado:#b8935a;
+  --dourado-claro:#d8bd8f;
+}
+
+/* ---------- CAPA ---------- */
+.cover{ background:var(--preto); color:var(--branco); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.cover .tag{ letter-spacing:6px; font-size:12pt; color:var(--dourado-claro); margin-bottom:18px; text-transform:uppercase; }
+.cover .brand{ font-size:52pt; font-weight:700; letter-spacing:4px; margin:0; }
+.cover .brand span{ color:var(--dourado); }
+.cover .line{ width:120px; height:1px; background:var(--dourado); margin:26px 0; }
+.cover .sub{ font-size:20pt; letter-spacing:10px; text-transform:uppercase; margin:0 0 10px 0; }
+.cover .sub2{ font-size:13pt; letter-spacing:3px; color:var(--dourado-claro); text-transform:uppercase; margin-top:6px;}
+.cover .foot{ position:absolute; left:0; right:0; bottom:34px; text-align:center; font-size:10pt; letter-spacing:2px; color:#c9c2b5; text-transform:uppercase; }
+
+/* ---------- BOAS-VINDAS ---------- */
+.welcome{ background:var(--branco); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 30mm; }
+.welcome .kicker{ color:var(--dourado); letter-spacing:4px; font-size:11pt; text-transform:uppercase; margin-bottom:14px; }
+.welcome h1{ font-size:26pt; margin:0 0 18px 0; color:var(--preto); font-weight:700; }
+.welcome p{ font-size:12.5pt; line-height:1.8; color:#4a443c; max-width:140mm; }
+.welcome .assinatura{ margin-top:30px; font-size:11pt; letter-spacing:2px; color:var(--marrom); text-transform:uppercase; }
+
+/* ---------- DIVISOR DE CATEGORIA ---------- */
+.divider{ background:var(--marrom); color:var(--branco); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.divider .num{ font-size:11pt; letter-spacing:4px; color:var(--dourado-claro); margin-bottom:10px; }
+.divider h1{ font-size:34pt; letter-spacing:3px; margin:0 0 16px 0; text-transform:uppercase; }
+.divider .line{ width:90px; height:1px; background:var(--dourado-claro); margin:0 auto 16px auto; }
+.divider p{ font-size:12pt; color:#ecdfca; max-width:120mm; }
+
+/* ---------- PAGINA DE PRODUTOS ---------- */
+.prod-page{ background:var(--branco); padding:12mm 12mm 16mm 12mm; position:relative; }
+.prod-page .pagehead{ display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid var(--dourado-claro); padding-bottom:6px; margin-bottom:8mm; }
+.prod-page .pagehead .catname{ font-size:10pt; letter-spacing:3px; color:var(--marrom); text-transform:uppercase; }
+.prod-page .pagehead .brandmini{ font-size:9.5pt; letter-spacing:2px; color:var(--dourado); text-transform:uppercase; }
+.grid2{ }
+
+.card{ display:table; table-layout:fixed; width:100%; border:1px solid #e7ddca; border-radius:4px; padding:7mm; background:#fffdfa; margin-bottom:8mm; }
+.card .imgbox{ display:table-cell; vertical-align:top; width:58mm; height:82mm; border-radius:3px; background:linear-gradient(135deg,#efe6d6,#ddd0b7); position:relative; }
+.card .imgbox .imgwrap{ position:relative; width:58mm; height:82mm; border-radius:3px; overflow:hidden; }
+.card .imgbox img{ width:100%; height:100%; object-fit:cover; }
+.card .imgbox .ph-wordmark{ position:absolute; top:44%; left:0; right:0; text-align:center; font-size:13pt; letter-spacing:3px; color:rgba(92,70,48,0.35); font-weight:700; transform:rotate(-18deg); text-transform:uppercase; }
+.card .imgbox .ph-cat{ position:absolute; bottom:8px; left:0; right:0; text-align:center; font-size:7.5pt; letter-spacing:2px; color:rgba(28,26,23,0.45); text-transform:uppercase; }
+
+.card .info{ display:table-cell; vertical-align:top; padding-left:7mm; }
+.card .info h2{ font-size:13.5pt; margin:0 0 5px 0; color:var(--preto); text-transform:uppercase; letter-spacing:0.5px; line-height:1.25; }
+.card .info .desc{ font-size:8.7pt; line-height:1.5; color:#5a544a; margin:0 0 7px 0; }
+.card .info ul{ margin:0 0 7px 0; padding-left:14px; font-size:8.3pt; color:#4a443c; line-height:1.4; }
+.card .info ul li{ margin-bottom:2px; }
+.card .chips{ margin-bottom:5px; line-height:1.9; }
+.card .chip{ display:inline-block; font-size:7.5pt; border:1px solid var(--dourado-claro); color:var(--marrom); border-radius:20px; padding:2px 8px; text-transform:uppercase; letter-spacing:0.5px; margin-right:3px; }
+.card .chiplabel{ font-size:7.5pt; color:#8a7f6e; text-transform:uppercase; letter-spacing:1px; margin-right:4px; }
+.card .bottom{ margin-top:8px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid #eee2cd; padding-top:6px; }
+.card .price{ font-size:15pt; font-weight:700; color:var(--preto); }
+.card .price .from{ font-size:8pt; font-weight:400; color:var(--marrom); display:block; text-transform:uppercase; letter-spacing:1px; }
+.card .cta{ font-size:7.5pt; background:var(--preto); color:var(--dourado-claro); padding:5px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; white-space:nowrap; }
+
+.prod-page .pagefoot{ position:absolute; left:0; right:0; bottom:8mm; text-align:center; font-size:7.5pt; color:#a89f8d; letter-spacing:2px; text-transform:uppercase; }
+
+/* ---------- CONTRACAPA ---------- */
+.backcover{ background:var(--preto); color:var(--branco); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.backcover .brand{ font-size:30pt; font-weight:700; letter-spacing:3px; margin-bottom:14px;}
+.backcover .brand span{ color:var(--dourado); }
+.backcover p{ font-size:11pt; color:#d8d0c2; letter-spacing:1px; max-width:120mm; line-height:1.8;}
+.backcover .cta-final{ margin-top:20px; font-size:12pt; letter-spacing:2px; color:var(--dourado-claro); text-transform:uppercase; border:1px solid var(--dourado); padding:10px 22px; border-radius:30px;}
+
+        html,body{ background:#f2ede3; }
+        .page{ page-break-after: auto; margin: 0 auto 8mm auto; box-shadow:0 2px 14px rgba(0,0,0,0.12); }
+        .card .thumbs{ display:flex; gap:4px; margin-bottom:6px; }
+        .card .thumbs img{ width:16mm; height:16mm; object-fit:cover; border-radius:2px; border:1px solid #e7ddca; }
+        @media (max-width: 700px){
+          .page{ width:100% !important; height:auto !important; min-height:0 !important; }
+          .card{ flex-direction:column; }
+          .card .imgbox{ width:100%; height:70mm; }
+        }
+        </style>
+</head>
+<body>
+
+    <div class="page cover">
+      <div class="tag">Japa Import apresenta</div>
+      <h1 class="brand">JAPA <span>IMPORT</span></h1>
+      <div class="line"></div>
+      <p class="sub">Nova Coleção</p>
+      <p class="sub" style="font-size:26pt; color:#d8bd8f;">NKFIT</p>
+      <p class="sub2">Fitness &bull; Performance &bull; Estilo</p>
+      <div class="foot">Catálogo Comercial &mdash; 43 modelos selecionados</div>
+    </div>
+
+    <div class="page welcome">
+      <div class="kicker">Bem-vinda(o) à</div>
+      <h1>Nova Coleção NKFIT</h1>
+      <p>Selecionamos, peça por peça, o melhor da NKFIT para você treinar com estilo e
+      se sentir confiante em qualquer momento do dia. Tecidos de alta performance,
+      caimento impecável e acabamento premium &mdash; tudo com a curadoria da Japa Import.</p>
+      <p>Confira as coleções a seguir e faça seu pedido diretamente com a gente.</p>
+      <div class="assinatura">Japa Import &middot; Fitness com estilo</div>
+    </div>
+
+        <div class="page divider">
+          <div class="num">Seção 01</div>
+          <h1>CONJUNTOS</h1>
+          <div class="line"></div>
+          <p>Sets completos para treinar com atitude — do fitness ao dia a dia.</p>
+        </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/675330578c0d4/5094-1-697a1a7e391e6.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO BETTER</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Better traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">VINHO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/675330578c0d4/5094-2-697a1a7b7ade7.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/675330578c0d4/5094-2-697a1a7b7ade7.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/675330578c0d4/5094-3-697a1a80e45d2.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/675330578c0d4/5094-3-697a1a80e45d2.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/675330578c0d4/5094-4-697a1a821b6a6.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/675330578c0d4/5094-4-697a1a821b6a6.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 144,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67fa665689515/4226-3-69da425085783.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO CENTER</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Center traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67fa665689515/4226-1-69d80f92ec811.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67fa665689515/4226-1-69d80f92ec811.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67fa665689515/4226-2-69d80f909e2f6.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67fa665689515/4226-2-69d80f909e2f6.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 108,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab4e25d543/4184-2-6a358551483c2.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO COCONUT</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Coconut traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">MARROM CLARO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab4e25d543/4184-3-6a358551c1042.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab4e25d543/4184-3-6a358551c1042.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab4e25d543/4184-1-6a3585529f1e0.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab4e25d543/4184-1-6a3585529f1e0.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 108,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d7d6785/4316-2-6a763c80c3123.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO COLORS</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Colors traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span><span class="chip">AMARELO MANTEIGA</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d7d6785/4316-5-6a763c8274e20.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d7d6785/4316-5-6a763c8274e20.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d7d6785/4316-4-6a763c86902be.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d7d6785/4316-4-6a763c86902be.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d7d6785/4316-3-6a763c85832d1.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d7d6785/4316-3-6a763c85832d1.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 135,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68966a6214ee2/4248-2-6942e06c9f962.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO ELEVATE</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Elevate traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 mais encorpada</li><li>Zero transparência</li><li>Compressão firme e modeladora</li><li>Alta resistência e durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL CLARO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68966a6214ee2/4248-6942e06be8d2f.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68966a6214ee2/4248-6942e06be8d2f.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 129,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639e0726e5/4344-3-6a763b283ffb8.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO EPIC</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Epic traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">MARROM</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639e0726e5/4344-2-6a763b24bf157.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639e0726e5/4344-2-6a763b24bf157.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639e0726e5/4344-1-6a763b24cbf52.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639e0726e5/4344-1-6a763b24cbf52.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639e0726e5/4344-4-6a763b27f39fe.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639e0726e5/4344-4-6a763b27f39fe.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 135,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a51433448d8e/4360-1-6a51444580b3e.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO FOCUS</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Focus traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AMARELO MANTEIGA</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a51433448d8e/4360-2-6a514437cd0a9.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a51433448d8e/4360-2-6a514437cd0a9.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a51433448d8e/4360-3-6a514442e6493.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a51433448d8e/4360-3-6a514442e6493.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a51433448d8e/4360-4-6a51443d4a75e.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a51433448d8e/4360-4-6a51443d4a75e.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d3e24f6/4346-3-6a764018abeb1.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO INNOVATION</h2>
+        <div class="desc">Conjunto Innovation foi pensado para acompanhar sua rotina com conforto e estilo. Destaques: top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Poliamida 260 (gramatura intermediária leve)</li><li>Elasticidade que acompanha os movimentos</li><li>Toque macio e agradável na pele</li><li>Modelagem funcional e confortável</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span><span class="chip">BRANCO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d3e24f6/4346-2-6a764016767ed.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d3e24f6/4346-2-6a764016767ed.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d3e24f6/4346-1-6a7640173d88c.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d3e24f6/4346-1-6a7640173d88c.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d3e24f6/4346-4-6a764018bc895.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639d3e24f6/4346-4-6a764018bc895.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 135,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68bb44a0098b7/83-68dfb1f8634c0.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO LAKE</h2>
+        <div class="desc">Conjunto Lake foi pensado para acompanhar sua rotina com conforto e estilo. Destaques: top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Poliamida 260 (leve, confortável e com ótima elasticidade)</li><li>Modelagem que valoriza a silhueta</li><li>Tecido com toque macio</li><li>Boa respirabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">MARROM</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68bb44a0098b7/84-68dfb1ed6f4f8.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68bb44a0098b7/84-68dfb1ed6f4f8.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68bb44a0098b7/82-68dfb1ed1ecbe.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68bb44a0098b7/82-68dfb1ed1ecbe.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68bb44a0098b7/81-68dfb1ed29243.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68bb44a0098b7/81-68dfb1ed29243.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 117,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a3ebdc9519a3/4359-2-6a4ffabc99f0a.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO LIGHTNING</h2>
+        <div class="desc">Conjunto Lightning foi pensado para acompanhar sua rotina com conforto e estilo. Destaques: top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Poliamida 260 (gramatura intermediária leve)</li><li>Elasticidade que acompanha os movimentos</li><li>Toque macio e agradável na pele</li><li>Modelagem funcional e confortável</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">OFF</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a3ebdc9519a3/4359-3-6a4ffabc38a05.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a3ebdc9519a3/4359-3-6a4ffabc38a05.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a3ebdc9519a3/4359-6a4ffac01d9a4.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a3ebdc9519a3/4359-6a4ffac01d9a4.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69ebbf6f0c327/4326-9-6a68ef8340cb7.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO LIST</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto List traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 mais encorpada</li><li>Zero transparência</li><li>Compressão firme e modeladora</li><li>Alta resistência e durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69ebbf6f0c327/4326-1-6a68ef8301779.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69ebbf6f0c327/4326-1-6a68ef8301779.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69ebbf6f0c327/4326-7-6a68ef82a81b5.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69ebbf6f0c327/4326-7-6a68ef82a81b5.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 129,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68b20535475e7/4271-3-68b2095100fec.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO LOOK</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Look traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">VERDE ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">GG</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68b20535475e7/4271-1-68b2095ad13cc.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68b20535475e7/4271-1-68b2095ad13cc.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68b20535475e7/4271-4-68b209471ac76.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68b20535475e7/4271-4-68b209471ac76.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 129,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/692d7e94488d8/4297-2-694014f4ece06.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO MARS</h2>
+        <div class="desc">Conjunto Mars foi pensado para acompanhar sua rotina com conforto e estilo. Destaques: top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Poliamida 260 leve e confortável</li><li>Ajuste que valoriza o corpo sem excesso de compressão</li><li>Ótima mobilidade</li><li>Tecido respirável</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/692d7e94488d8/4297-1-69401503462fc.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/692d7e94488d8/4297-1-69401503462fc.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/692d7e94488d8/4297-4-694014f756e0f.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/692d7e94488d8/4297-4-694014f756e0f.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/692d7e94488d8/4297-3-694014f686af5.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/692d7e94488d8/4297-3-694014f686af5.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 117,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67d4822e24eb2/4224-2-69da37fb98321.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO MOLD</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Mold traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67d4822e24eb2/4224-1-69d80f6057213.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67d4822e24eb2/4224-1-69d80f6057213.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67d4822e24eb2/4224-69d80f601df07.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67d4822e24eb2/4224-69d80f601df07.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67d4822e24eb2/4224-3-69d80f5d7ea0a.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67d4822e24eb2/4224-3-69d80f5d7ea0a.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 108,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a076f9d13d6f/4337-3-6a0770cf15fbb.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO MOOD</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Mood traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">VERMELHO</span><span class="chip">ROSA CLARO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a076f9d13d6f/4337-2-6a0770cd149c3.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a076f9d13d6f/4337-2-6a0770cd149c3.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a076f9d13d6f/4337-4-6a0770c8522b4.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a076f9d13d6f/4337-4-6a0770c8522b4.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a076f9d13d6f/4337-1-6a0770d0a9089.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a076f9d13d6f/4337-1-6a0770d0a9089.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 129,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67b5c9cb6cd1f/4215-3-67b5d4a152ffb.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO MOTHS</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Moths traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">LAVANDA</span><span class="chip">ROSA ESCURO</span><span class="chip">AZUL ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span><span class="chip">G</span><span class="chip">GG</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67b5c9cb6cd1f/4215-4-67b5d4a77588c.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67b5c9cb6cd1f/4215-4-67b5d4a77588c.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67b5c9cb6cd1f/4215-1-67b5d4b0d67c7.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67b5c9cb6cd1f/4215-1-67b5d4b0d67c7.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price"><span class="from">A partir de</span>R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc16185dd/4291-4-6961532a304ba.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO MOVE</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Move traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">ROSA CLARO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc16185dd/4291-2-6961532724db7.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc16185dd/4291-2-6961532724db7.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc16185dd/4291-1-6961532837133.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc16185dd/4291-1-6961532837133.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc16185dd/4291-3-6961532a11e60.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc16185dd/4291-3-6961532a11e60.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 135,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/680f64734eb36/4225-3-6a6ca5319ce69.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO MYSTIC</h2>
+        <div class="desc">Confeccionado em gramatura 260, Conjunto Mystic traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 260 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/680f64734eb36/4225-4-6a6ca531c804e.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/680f64734eb36/4225-4-6a6ca531c804e.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/680f64734eb36/4225-2-6a6ca532b992d.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/680f64734eb36/4225-2-6a6ca532b992d.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/680f64734eb36/4225-1-6a6ca533f1774.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/680f64734eb36/4225-1-6a6ca533f1774.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 100,80</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68adc7212908a/5191-4-68b08ba022d3b.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO ORCHID</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Orchid traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span><span class="chip">AZUL CLARO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68adc7212908a/5191-3-68b08c232e950.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68adc7212908a/5191-3-68b08c232e950.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68adc7212908a/5191-2-68b08b7f6dde1.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68adc7212908a/5191-2-68b08b7f6dde1.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 144,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69332ca389f74/4292-1-69da3aba4831b.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO POOL</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Pool traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 mais encorpada</li><li>Zero transparência</li><li>Compressão firme e modeladora</li><li>Alta resistência e durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span><span class="chip">MARROM</span><span class="chip">AZUL ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span><span class="chip">GG</span><span class="chip">G</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69332ca389f74/4292-3-69d7e5cb7915d.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69332ca389f74/4292-3-69d7e5cb7915d.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69332ca389f74/4292-2-69d7e5ca4edf9.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69332ca389f74/4292-2-69d7e5ca4edf9.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 108,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/671000f89916d/4081-3-6893671ed2ea1.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO RELUZIR</h2>
+        <div class="desc">Conjunto Reluzir foi pensado para acompanhar sua rotina com conforto e estilo. Destaques: top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Poliamida 260 (leve, confortável e com ótima elasticidade)</li><li>Modelagem que valoriza a silhueta</li><li>Tecido com toque macio</li><li>Boa respirabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">OFF</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/671000f89916d/4081-2-68936727a24e3.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/671000f89916d/4081-2-68936727a24e3.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/671000f89916d/4081-1-68936732061ce.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/671000f89916d/4081-1-68936732061ce.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab3f8d0cae/4185-2-69da388f3cda3.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO SHELL</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Shell traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">VERDE OLIVA</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab3f8d0cae/4185-4-69d80c23425c4.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab3f8d0cae/4185-4-69d80c23425c4.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab3f8d0cae/4185-1-69d80c232090b.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab3f8d0cae/4185-1-69d80c232090b.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab3f8d0cae/4185-3-69d80c24e837b.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/67dab3f8d0cae/4185-3-69d80c24e837b.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 108,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6932ddc0e2042/5217-6a4ff77e4c27a.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO SHELLS</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Shells traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6932ddc0e2042/5217-4-6a4ff77aecec5.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6932ddc0e2042/5217-4-6a4ff77aecec5.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6932ddc0e2042/5217-2-6a4ff77cbb35c.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6932ddc0e2042/5217-2-6a4ff77cbb35c.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6932ddc0e2042/5217-3-6a4ff77e8ad56.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6932ddc0e2042/5217-3-6a4ff77e8ad56.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 144,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a6cdab6915c0/4345-4-6a6cdba52b4ab.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO SINGLE</h2>
+        <div class="desc">Conjunto Single foi pensado para acompanhar sua rotina com conforto e estilo. Destaques: top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Poliamida 260 (gramatura intermediária leve)</li><li>Elasticidade que acompanha os movimentos</li><li>Toque macio e agradável na pele</li><li>Modelagem funcional e confortável</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a6cdab6915c0/4345-1-6a6cdba384d6b.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a6cdab6915c0/4345-1-6a6cdba384d6b.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a6cdab6915c0/4345-3-6a6cdba3aa69f.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a6cdab6915c0/4345-3-6a6cdba3aa69f.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a6cdab6915c0/4345-2-6a6cdba562ede.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a6cdab6915c0/4345-2-6a6cdba562ede.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 129,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639dc212aa/5249-2-6a76419a972ed.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO SPRING</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Spring traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span><span class="chip">AMARELO MANTEIGA</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639dc212aa/5249-4-6a764194de6c6.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639dc212aa/5249-4-6a764194de6c6.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639dc212aa/5249-1-6a764198c011f.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639dc212aa/5249-1-6a764198c011f.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639dc212aa/5249-3-6a7641991f7b7.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a7639dc212aa/5249-3-6a7641991f7b7.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 147,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6765c1937037d/4154-1-6a3583263569f.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO WAVE</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Wave traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6765c1937037d/4154-2-6a3583262defa.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6765c1937037d/4154-2-6a3583262defa.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6765c1937037d/4154-6a358326a6516.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6765c1937037d/4154-6a358326a6516.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 111,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+        <div class="page divider">
+          <div class="num">Seção 02</div>
+          <h1>MACAQUITOS / MACACÕES</h1>
+          <div class="line"></div>
+          <p>Peça única, praticidade máxima e caimento impecável.</p>
+        </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">MACAQUITOS / MACACÕES</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6814c443e9b57/4219-4-69da8392b5982.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>MACAQUITO FALL</h2>
+        <div class="desc">Confeccionado em gramatura 310, Macaquito Fall traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, sem bojo. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">BORDO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6814c443e9b57/42-6814c594a309b.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6814c443e9b57/42-6814c594a309b.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6814c443e9b57/40-6814c58dea319.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6814c443e9b57/40-6814c58dea319.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/687a8be432291/4242-3-687a910e49793.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>MACAQUITO GROTTA</h2>
+        <div class="desc">Confeccionado em gramatura 310, Macaquito Grotta traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, sem bojo. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">VERDE ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/687a8be432291/45-687f989b8f3b3.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/687a8be432291/45-687f989b8f3b3.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/687a8be432291/4242-2-687a911dc298b.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/687a8be432291/4242-2-687a911dc298b.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/687a8be432291/4242-1-687a910518e87.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/687a8be432291/4242-1-687a910518e87.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 135,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">MACAQUITOS / MACACÕES</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5151fdbf4a4/4343-2-6a51524549b04.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>MACAQUITO TWINS</h2>
+        <div class="desc">Confeccionado em gramatura 310, Macaquito Twins traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">MARROM</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5151fdbf4a4/4343-1-6a515244ea33a.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5151fdbf4a4/4343-1-6a515244ea33a.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5151fdbf4a4/4343-4-6a515244d9c4e.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5151fdbf4a4/4343-4-6a515244d9c4e.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5151fdbf4a4/4343-3-6a51524596f16.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5151fdbf4a4/4343-3-6a51524596f16.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+        <div class="page divider">
+          <div class="num">Seção 03</div>
+          <h1>SHORTS</h1>
+          <div class="line"></div>
+          <p>Liberdade de movimento com o design que a Japa Import selecionou pra você.</p>
+        </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">SHORTS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a10af18bab22/022-1-6a10b0b7e74a3.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>SHORT BERLIM</h2>
+        <div class="desc">Short Berlim foi pensado para acompanhar sua rotina com conforto e estilo. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Cós alto que oferece melhor sustentação</li><li>Tecido leve, flexível e confortável</li><li>Modelagem que se adapta ao corpo</li><li>Design básico e versátil</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL JEANS</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">GG</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a10af18bab22/022-6a10b0b7be8a0.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a10af18bab22/022-6a10b0b7be8a0.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a10af18bab22/022-2-6a10b0b831f39.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a10af18bab22/022-2-6a10b0b831f39.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 75,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68431c874383f/016-1-68cb0bc4d8365.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>SHORT TURGLE</h2>
+        <div class="desc">Short Turgle foi pensado para acompanhar sua rotina com conforto e estilo. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Cós alto que oferece melhor sustentação</li><li>Tecido leve, flexível e confortável</li><li>Modelagem que se adapta ao corpo</li><li>Design básico e versátil</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">VINHO</span><span class="chip">ROSA CLARO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68431c874383f/016-2-68cb0b8aa196e.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68431c874383f/016-2-68cb0b8aa196e.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68431c874383f/016-4-68cb0bba2f632.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68431c874383f/016-4-68cb0bba2f632.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68431c874383f/016-3-68cb0bc4c925b.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68431c874383f/016-3-68cb0bc4c925b.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 57,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+        <div class="page divider">
+          <div class="num">Seção 04</div>
+          <h1>BLUSAS E JAQUETAS</h1>
+          <div class="line"></div>
+          <p>Camadas versáteis para compor looks fitness em qualquer estação.</p>
+        </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">BLUSAS E JAQUETAS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6737e4989e74e/109-6737fb9f61872.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>BLUSA UV 50+</h2>
+        <div class="desc">Blusa Uv 50+ foi pensado para acompanhar sua rotina com conforto e estilo. Destaques: proteção solar UV 50+. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Proteção UV 50+</li><li>Gramatura de 260</li><li>Alta respirabilidade para maior conforto térmico</li><li>Tecido leve com elasticidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">ROSA ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">GG</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6737e4989e74e/111-6737fba248f46.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6737e4989e74e/111-6737fba248f46.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6737e4989e74e/110-6737fba51cd0a.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6737e4989e74e/110-6737fba51cd0a.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 84,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69613cee59843/2244-1-69da857277742.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>BOOMBER CITRUS</h2>
+        <div class="desc">Confeccionado em gramatura 180, Boomber Citrus traz o equilíbrio perfeito entre conforto e estrutura. Destaques: tecnologia Dryfit que ajuda a manter a pele seca. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Tecnologia Dryfit que ajuda a manter a pele seca</li><li>Alta respirabilidade para maior conforto térmico</li><li>Tecido leve com elasticidade</li><li>Recortes modernos que valorizam o visual</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">ROSA ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69613cee59843/2244-4-696152bd71ab7.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69613cee59843/2244-4-696152bd71ab7.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69613cee59843/2244-2-696152c2374bd.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69613cee59843/2244-2-696152c2374bd.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69613cee59843/2244-3-696152c1d8618.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69613cee59843/2244-3-696152c1d8618.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 79,20</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">BLUSAS E JAQUETAS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68151b0720eb2/97-68151f6497222.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>JAQUETA FIRE</h2>
+        <div class="desc">Jaqueta Fire foi pensado para acompanhar sua rotina com conforto e estilo. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Poliamida 260 (leve, confortável e com ótima elasticidade)</li><li>Modelagem que valoriza a silhueta</li><li>Tecido com toque macio</li><li>Boa respirabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">P</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68151b0720eb2/99-68151f6f18309.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68151b0720eb2/99-68151f6f18309.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68151b0720eb2/96-68151f6ff0486.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68151b0720eb2/96-68151f6ff0486.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68151b0720eb2/98-68151f77803ad.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68151b0720eb2/98-68151f77803ad.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 99,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+        <div class="page divider">
+          <div class="num">Seção 05</div>
+          <h1>PLUS SIZE</h1>
+          <div class="line"></div>
+          <p>Mesmo padrão de qualidade e estilo NKFIT, em modelagem plus size.</p>
+        </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">PLUS SIZE</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5a838a57acf/6081-2-6a5a8543a50f7.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO COLORFULL</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Colorfull traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">MARROM</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G1</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5a838a57acf/6081-4-6a5a854098e8d.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5a838a57acf/6081-4-6a5a854098e8d.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5a838a57acf/6081-1-6a5a854278a2a.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5a838a57acf/6081-1-6a5a854278a2a.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5a838a57acf/6081-3-6a5a85440ff4e.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a5a838a57acf/6081-3-6a5a85440ff4e.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 135,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc18059d0/6072-4-69da86d696bd2.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO EXTREME</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Extreme traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span><span class="chip">AZUL ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G1</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc18059d0/6072-6-6977a0df9ee92.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc18059d0/6072-6-6977a0df9ee92.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc18059d0/6072-2-6977a0deba79b.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6945bc18059d0/6072-2-6977a0deba79b.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 135,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">PLUS SIZE</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69332ca7c0181/56-69615143d1b0a.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>CONJUNTO SPEED</h2>
+        <div class="desc">Confeccionado em gramatura 310, Conjunto Speed traz o equilíbrio perfeito entre conforto e estrutura. Destaques: zero transparência, top com bojo removível. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G1</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69332ca7c0181/57-6961514471c0b.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/69332ca7c0181/57-6961514471c0b.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 153,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+        <div class="page divider">
+          <div class="num">Seção 06</div>
+          <h1>MASCULINO</h1>
+          <div class="line"></div>
+          <p>Performance e conforto para o treino masculino.</p>
+        </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">MASCULINO</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68682bc326af0/9048-3-689f6a06574ce.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>BLUSA MASCULINA GIFT</h2>
+        <div class="desc">Confeccionado em gramatura 180, Blusa Masculina Gift traz o equilíbrio perfeito entre conforto e estrutura. Destaques: tecnologia Dryfit que ajuda a manter a pele seca. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Tecnologia Dryfit que ajuda a manter a pele seca</li><li>Alta respirabilidade para maior conforto térmico</li><li>Tecido leve com elasticidade</li><li>Recortes modernos que valorizam o visual</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">MARROM</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68682bc326af0/9048-1-689f69fcddca9.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68682bc326af0/9048-1-689f69fcddca9.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68682bc326af0/9048-2-689f6a1177ba5.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68682bc326af0/9048-2-689f6a1177ba5.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 72,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/696a6a1226ec0/9058-2-69da611505db1.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>SHORT MASCULINO TITÃ</h2>
+        <div class="desc">Short Masculino Titã foi pensado para acompanhar sua rotina com conforto e estilo. Destaques: tecido Tactel de toque leve. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Tecnologia Tactel que ajuda a manter a pele seca</li><li>Alta respirabilidade para maior conforto térmico</li><li>Tecido leve com elasticidade</li><li>Recortes modernos que valorizam o visual</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/696a6a1226ec0/9058-4-69da61154811f.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/696a6a1226ec0/9058-4-69da61154811f.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/696a6a1226ec0/9058-3-69da6114b49b1.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/696a6a1226ec0/9058-3-69da6114b49b1.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 81,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">MASCULINO</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/683ed5c729176/9050-4-69da5ae0df07b.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>SHORT MASCULINO TRINITY</h2>
+        <div class="desc">Short Masculino Trinity foi pensado para acompanhar sua rotina com conforto e estilo. Uma peça versátil para treinar ou usar no dia a dia, com a qualidade NKFIT que a Japa Import seleciona para você.</div>
+        <ul><li>Recortes que modernizam o visual</li><li>Tecido com toque macio e flexível</li><li>Ajuste confortável ao corpo</li><li>Cores fáceis de combinar</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">GRAFITE</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/683ed5c729176/9050-2-69da5a991eb7d.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/683ed5c729176/9050-2-69da5a991eb7d.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/683ed5c729176/9050-3-69da5b2566f31.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/683ed5c729176/9050-3-69da5b2566f31.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 90,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+        <div class="page divider">
+          <div class="num">Seção 07</div>
+          <h1>ACESSÓRIOS</h1>
+          <div class="line"></div>
+          <p>Os complementos certos para fechar o look fitness.</p>
+        </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">ACESSÓRIOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a2c434aceda5/0222-1-6a2c43bce717c.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>GARRAFA UP</h2>
+        <div class="desc">Garrafa Up é o complemento ideal para o seu look fitness e para o dia a dia. Medidas: ML: 800; Altura: 29cm. Selecionado pela Japa Import para unir praticidade e estilo.</div>
+        <ul><li>ML: 800</li><li>Altura: 29cm</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">ROSA CLARO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">UNICO</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a2c434aceda5/0222-8-6a2c437aadcea.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a2c434aceda5/0222-8-6a2c437aadcea.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a2c434aceda5/0222-2-6a2c43840c821.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a2c434aceda5/0222-2-6a2c43840c821.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a2c434aceda5/0222-6-6a2c4394ef5f5.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/6a2c434aceda5/0222-6-6a2c4394ef5f5.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 99,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/694290c190ead/0120-12-6942dbe0c8626.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>MALA ESPORTIVA ELEGANCY</h2>
+        <div class="desc">Mala Esportiva Elegancy é o complemento ideal para o seu look fitness e para o dia a dia. Medidas: Largura: 31cm; Altura: 52cm; Cumprimento: 37cm. Selecionado pela Japa Import para unir praticidade e estilo.</div>
+        <ul><li>Largura: 31cm</li><li>Altura: 52cm</li><li>Cumprimento: 37cm</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">VINHO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">UNICO</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/694290c190ead/0120-3-6942dc0c197db.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/694290c190ead/0120-3-6942dc0c197db.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/694290c190ead/0120-4-6942dc0849c85.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/694290c190ead/0120-4-6942dc0849c85.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/694290c190ead/0120-7-6942dc286ec8b.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/694290c190ead/0120-7-6942dc286ec8b.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+            <div class="page prod-page">
+              <div class="pagehead"><span class="catname">ACESSÓRIOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+              <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68d296f350f8e/13-68d6704342a27.jpg" loading="lazy"></div></div>
+      <div class="info">
+        <h2>MOCHILA ESPORTIVA URIEL</h2>
+        <div class="desc">Mochila Esportiva Uriel é o complemento ideal para o seu look fitness e para o dia a dia. Medidas: Cumprimento: 56cm; Largura: 20cm; Altura: 35cm. Selecionado pela Japa Import para unir praticidade e estilo.</div>
+        <ul><li>Cumprimento: 56cm</li><li>Largura: 20cm</li><li>Altura: 35cm</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">VINHO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">UNICO</span></div>
+        <div class="thumbs"><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68d296f350f8e/20-68d67014a47e0.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68d296f350f8e/20-68d67014a47e0.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68d296f350f8e/17-68d67041cf911.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68d296f350f8e/17-68d67041cf911.jpg" loading="lazy"></a><a href="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68d296f350f8e/18-68d670393db6d.jpg" target="_blank"><img src="https://assets.sistemawbuy.com.br/arquivos/90c40166e881f24ff41fe1cf17355ddd/produtos/68d296f350f8e/18-68d670393db6d.jpg" loading="lazy"></a></div>
+        <div class="bottom">
+          <div class="price">R$ 108,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+              <div class="pagefoot">Japa Import &middot; Consulte disponibilidade com a Japa Import</div>
+            </div>
+
+    <div class="page backcover">
+      <div class="brand">JAPA <span>IMPORT</span></div>
+      <p>Gostou de alguma peça? Fale com a gente e garanta a sua antes que acabe o estoque.
+      Consulte disponibilidade de cores e tamanhos com a Japa Import.</p>
+      <div class="cta-final">Peça pelo Direct da Japa Import</div>
+    </div>
+</body>
+</html>

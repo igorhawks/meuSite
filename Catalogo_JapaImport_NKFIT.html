@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Catálogo Japa Import &times; NKFIT</title>
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: 'Helvetica Neue', Arial, sans-serif; color:#1c1a17; }
+.page { width:210mm; height:297mm; position:relative; page-break-after:always; overflow:hidden; }
+.page:last-child{ page-break-after: auto; }
+
+:root{
+  --preto:#17140f;
+  --branco:#faf7f2;
+  --bege:#ede3d3;
+  --marrom:#5c4630;
+  --dourado:#b8935a;
+  --dourado-claro:#d8bd8f;
+}
+
+/* ---------- CAPA ---------- */
+.cover{ background:var(--preto); color:var(--branco); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; }
+.cover .tag{ letter-spacing:6px; font-size:12pt; color:var(--dourado-claro); margin-bottom:14px; text-transform:uppercase; }
+.cover .brand{ font-size:46pt; font-weight:700; letter-spacing:4px; margin:0; }
+.cover .brand span{ color:var(--dourado); }
+.cover .line{ width:120px; height:1px; background:var(--dourado); margin:20px 0; }
+.cover .sub{ font-size:18pt; letter-spacing:9px; text-transform:uppercase; margin:0 0 8px 0; }
+.cover .sub2{ font-size:12pt; letter-spacing:3px; color:var(--dourado-claro); text-transform:uppercase; margin-top:6px;}
+.cover .foot{ position:absolute; left:0; right:0; bottom:20mm; text-align:center; font-size:10pt; letter-spacing:2px; color:#c9c2b5; text-transform:uppercase; }
+.cover-imgs{ display:flex; gap:8mm; margin:16mm 0; }
+.cover-imgwrap{ width:42mm; height:58mm; border-radius:4px; overflow:hidden; border:1px solid rgba(216,189,143,0.4); box-shadow:0 6px 18px rgba(0,0,0,0.35); }
+.cover-imgwrap img{ width:100%; height:100%; object-fit:cover; }
+
+/* ---------- BOAS-VINDAS ---------- */
+.welcome{ background:var(--branco); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 30mm; }
+.welcome .kicker{ color:var(--dourado); letter-spacing:4px; font-size:11pt; text-transform:uppercase; margin-bottom:14px; }
+.welcome h1{ font-size:26pt; margin:0 0 18px 0; color:var(--preto); font-weight:700; }
+.welcome p{ font-size:12.5pt; line-height:1.8; color:#4a443c; max-width:140mm; }
+.welcome .assinatura{ margin-top:30px; font-size:11pt; letter-spacing:2px; color:var(--marrom); text-transform:uppercase; }
+.welcome .aviso{ margin-top:22px; font-size:9pt; line-height:1.6; color:#8a7f6e; max-width:130mm; font-style:italic; }
+
+/* ---------- DIVISOR DE CATEGORIA ---------- */
+.divider{ background:var(--marrom); color:var(--branco); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.divider .num{ font-size:11pt; letter-spacing:4px; color:var(--dourado-claro); margin-bottom:10px; }
+.divider h1{ font-size:34pt; letter-spacing:3px; margin:0 0 16px 0; text-transform:uppercase; }
+.divider .line{ width:90px; height:1px; background:var(--dourado-claro); margin:0 auto 16px auto; }
+.divider p{ font-size:12pt; color:#ecdfca; max-width:120mm; }
+
+/* ---------- PAGINA DE PRODUTOS ---------- */
+.prod-page{ background:var(--branco); padding:12mm 12mm 16mm 12mm; position:relative; }
+.prod-page .pagehead{ display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid var(--dourado-claro); padding-bottom:6px; margin-bottom:8mm; }
+.prod-page .pagehead .catname{ font-size:10pt; letter-spacing:3px; color:var(--marrom); text-transform:uppercase; }
+.prod-page .pagehead .brandmini{ font-size:9.5pt; letter-spacing:2px; color:var(--dourado); text-transform:uppercase; }
+
+.card{ display:table; table-layout:fixed; width:100%; border:1px solid #e7ddca; border-radius:4px; padding:7mm; background:#fffdfa; margin-bottom:8mm; }
+.card .imgbox{ display:table-cell; vertical-align:top; width:62mm; }
+.card .imgbox .imgwrap{ position:relative; width:62mm; height:88mm; border-radius:3px; overflow:hidden; background:linear-gradient(135deg,#efe6d6,#ddd0b7); }
+.card .imgbox img{ width:100%; height:100%; object-fit:cover; display:block; }
+.card .imgbox .ph-wordmark{ position:absolute; top:44%; left:0; right:0; text-align:center; font-size:13pt; letter-spacing:3px; color:rgba(92,70,48,0.35); font-weight:700; transform:rotate(-18deg); text-transform:uppercase; }
+.card .imgbox .imgtag{ position:absolute; left:0; right:0; bottom:0; background:rgba(23,20,15,0.62); color:#f3ead9; font-size:6.3pt; letter-spacing:0.5px; text-transform:uppercase; text-align:center; padding:3px 2px; }
+
+.card .info{ display:table-cell; vertical-align:top; padding-left:7mm; }
+.card .info h2{ font-size:13.5pt; margin:0 0 5px 0; color:var(--preto); text-transform:uppercase; letter-spacing:0.5px; line-height:1.25; }
+.card .info .desc{ font-size:8.7pt; line-height:1.5; color:#5a544a; margin:0 0 7px 0; }
+.card .info ul{ margin:0 0 7px 0; padding-left:14px; font-size:8.3pt; color:#4a443c; line-height:1.4; }
+.card .info ul li{ margin-bottom:2px; }
+.card .chips{ margin-bottom:5px; line-height:1.9; }
+.card .chip{ display:inline-block; font-size:7.5pt; border:1px solid var(--dourado-claro); color:var(--marrom); border-radius:20px; padding:2px 8px; text-transform:uppercase; letter-spacing:0.5px; margin-right:3px; }
+.card .chiplabel{ font-size:7.5pt; color:#8a7f6e; text-transform:uppercase; letter-spacing:1px; margin-right:4px; }
+.card .bottom{ margin-top:8px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid #eee2cd; padding-top:6px; }
+.card .price{ font-size:15pt; font-weight:700; color:var(--preto); }
+.card .price .from{ font-size:8pt; font-weight:400; color:var(--marrom); display:block; text-transform:uppercase; letter-spacing:1px; }
+.card .cta{ font-size:7.5pt; background:var(--preto); color:var(--dourado-claro); padding:5px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; white-space:nowrap; }
+
+.prod-page .pagefoot{ position:absolute; left:0; right:0; bottom:8mm; text-align:center; font-size:7.5pt; color:#a89f8d; letter-spacing:2px; text-transform:uppercase; }
+
+/* ---------- CONTRACAPA ---------- */
+.backcover{ background:var(--preto); color:var(--branco); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.backcover .brand{ font-size:30pt; font-weight:700; letter-spacing:3px; margin-bottom:14px;}
+.backcover .brand span{ color:var(--dourado); }
+.backcover p{ font-size:11pt; color:#d8d0c2; letter-spacing:1px; max-width:120mm; line-height:1.8;}
+.backcover .cta-final{ margin-top:20px; font-size:12pt; letter-spacing:2px; color:var(--dourado-claro); text-transform:uppercase; border:1px solid var(--dourado); padding:10px 22px; border-radius:30px;}
+
+/* ---------- CENTRALIZACAO NA TELA (visualizacao em navegador) ---------- */
+html, body{ background:#f2ede3; }
+body{ display:flex; flex-direction:column; align-items:center; }
+.page{ margin:0 auto 8mm auto; box-shadow:0 2px 14px rgba(0,0,0,0.12); }
+@media print{
+  html, body{ background:none; }
+  body{ display:block; }
+  .page{ margin:0; box-shadow:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="page cover">
+  <div class="tag">Japa Import apresenta</div>
+  <h1 class="brand">JAPA <span>IMPORT</span></h1>
+  <div class="cover-imgs"><div class="cover-imgwrap"><img src="../assets/produtos/conjunto-look/01.jpg"></div><div class="cover-imgwrap"><img src="../assets/produtos/macacao-lily/01.jpg"></div><div class="cover-imgwrap"><img src="../assets/produtos/conjunto-orchid/01.jpg"></div></div>
+  <p class="sub">Nova Coleção</p>
+  <p class="sub" style="font-size:24pt; color:#d8bd8f;">NKFIT</p>
+  <p class="sub2">Fitness &bull; Performance &bull; Estilo</p>
+  <div class="foot">Catálogo Comercial &mdash; 36 modelos selecionados</div>
+</div>
+
+<div class="page welcome">
+  <div class="kicker">Bem-vinda(o) à</div>
+  <h1>Nova Coleção NKFIT</h1>
+  <p>Chegou a nova seleção NKFIT da Japa Import. Peças escolhidas para quem busca
+  conforto, estilo e confiança dentro e fora do treino, com tecidos de alta
+  performance e acabamento premium.</p>
+  <p>Conheça a coleção a seguir e faça seu pedido diretamente com a gente.</p>
+  <div class="assinatura">Japa Import &middot; Fitness com estilo</div>
+  <div class="aviso">As fotos ilustram o modelo e a modelagem da peça NKFIT conforme fotografadas pelo fornecedor. A cor real disponível em estoque na Japa Import é sempre a indicada no campo "Cores" de cada peça, podendo diferir da cor exibida na foto quando o fornecedor fotografou a mesma modelagem em outra tonalidade.</div>
+</div>
+
+    <div class="page divider">
+      <div class="num">Seção 01</div>
+      <h1>CONJUNTOS</h1>
+      <div class="line"></div>
+      <p>Sets completos para treinar com atitude — do fitness ao dia a dia.</p>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-desert/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO DESERT</h2>
+        <div class="desc">O Conjunto Desert em gramatura 310 é ideal para quem busca mais firmeza e segurança. Seu tecido encorpado oferece zero transparência, maior compressão e resistência superiores, garantindo sustentação e acabamento estruturado.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">MARROM</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-drop/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO DROP</h2>
+        <div class="desc">O Conjunto Drop combina praticidade e estilo em uma proposta versátil para o dia a dia. Desenvolvido em poliamida 260, proporciona toque macio, elasticidade confortável e excelente adaptação ao corpo.</div>
+        <ul><li>Poliamida 260 leve e confortável</li><li>Ajuste que valoriza o corpo sem excesso de compressão</li><li>Ótima mobilidade</li><li>Tecido respirável</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">GG</span></div>
+        <div class="bottom">
+          <div class="price">R$ 111,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-emozione/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO EMOZIONE</h2>
+        <div class="desc">O Conjunto Emozione é confeccionado em gramatura 280 com acabamento canelado brilhoso, trazendo textura moderna e visual sofisticado. Sua estrutura garante zero transparência, segurança nos movimentos e equilíbrio ideal entre firmeza e conforto.</div>
+        <ul><li>Gramatura 280 estruturada</li><li>Textura canelada com acabamento brilhoso</li><li>Zero transparência</li><li>Ótima elasticidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">VINHO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-fairy/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO FAIRY</h2>
+        <div class="desc">O Conjunto Fairy é confeccionado em gramatura 310, oferecendo mais estrutura, compressão firme e zero transparência. Sua densidade superior garante maior sustentação, resistência e ajuste modelador ao corpo.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-focus-6a3ed4d2d158a/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO TEXTURED</h2>
+        <div class="desc">Desenvolvido em gramatura 280, o Conjunto Textured combina estrutura equilibrada com acabamento canelado brilhoso, proporcionando zero transparência e ótima elasticidade. Seu caimento se ajusta ao corpo com conforto e firmeza na medida certa.</div>
+        <ul><li>Gramatura 280</li><li>Textura canelada com brilho discreto</li><li>Zero transparência</li><li>Elasticidade que acompanha os movimentos</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">BORDO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-frill/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO FRIIL</h2>
+        <div class="desc">Desenvolvido para oferecer conforto, mobilidade e excelente custo-benefício, o Conjunto Friil é confeccionado em poliamida 260, proporcionando toque macio, elasticidade e ajuste confortável ao corpo.</div>
+        <ul><li>Poliamida 260 leve, confortável e com ótima elasticidade</li><li>Modelagem que valoriza a silhueta</li><li>Tecido com toque macio</li><li>Boa respirabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span><span class="chip">BRANCO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 162,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-iconic/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO ICONIC</h2>
+        <div class="desc">Desenvolvido para oferecer conforto, mobilidade e excelente custo-benefício, o Conjunto Iconic é confeccionado em poliamida 260, proporcionando toque macio, elasticidade e ajuste confortável ao corpo.</div>
+        <ul><li>Poliamida 260 leve, confortável e com ótima elasticidade</li><li>Modelagem que valoriza a silhueta</li><li>Tecido com toque macio</li><li>Boa respirabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 162,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-life/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO LIFE</h2>
+        <div class="desc">Produzido em poliamida 260, o Conjunto Life oferece elasticidade confortável e estrutura leve, sendo uma excelente escolha para quem prefere tecidos mais flexíveis e com toque suave.</div>
+        <ul><li>Poliamida 260 (gramatura intermediária leve)</li><li>Elasticidade que acompanha os movimentos</li><li>Toque macio e agradável na pele</li><li>Modelagem funcional e confortável</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 108,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-look/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO LOOK</h2>
+        <div class="desc">Desenvolvido em gramatura 310, o Conjunto Look proporciona tecido mais denso, compressão equilibrada e total segurança contra transparência. Entrega firmeza, resistência e efeito modelador com excelente ajuste ao corpo.</div>
+        <ul><li>Gramatura 310 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span><span class="chip">VERDE ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-masterfull/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO MASTERFULL</h2>
+        <div class="desc">O Conjunto Masterfull em gramatura 280 se destaca pelo acabamento canelado brilhoso, que agrega estilo e modernidade à peça. Com zero transparência, ótima elasticidade e vestibilidade impecável, entrega conforto e valorização da silhueta.</div>
+        <ul><li>Gramatura 280 estruturada</li><li>Visual canelado com brilho sofisticado</li><li>Zero transparência</li><li>Ótima elasticidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span><span class="chip">VERMELHO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 153,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-meridian/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO MERIDIAN</h2>
+        <div class="desc">O Conjunto Meridian em gramatura 280 se destaca pelo acabamento canelado brilhoso, que agrega estilo e modernidade à peça. Com zero transparência, ótima elasticidade e vestibilidade impecável, entrega conforto e valorização da silhueta.</div>
+        <ul><li>Gramatura 280 estruturada</li><li>Visual canelado com brilho sofisticado</li><li>Zero transparência</li><li>Ótima elasticidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">ROSA CLARO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-mirante/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO MIRANTE</h2>
+        <div class="desc">O Conjunto Mirante em gramatura 280 se destaca pelo acabamento canelado brilhoso, que agrega estilo e modernidade à peça. Com zero transparência, ótima elasticidade e vestibilidade impecável, entrega conforto e valorização da silhueta.</div>
+        <ul><li>Gramatura 280 estruturada</li><li>Visual canelado com brilho sofisticado</li><li>Zero transparência</li><li>Ótima elasticidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">TANGERINA</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-mold/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO MOLD</h2>
+        <div class="desc">O Conjunto Mold é confeccionado em gramatura 310, oferecendo mais estrutura, compressão firme e zero transparência. Sua densidade superior garante maior sustentação, resistência e ajuste modelador ao corpo.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-move/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO MOVE</h2>
+        <div class="desc">O Conjunto Move é confeccionado em gramatura 310, oferecendo mais estrutura, compressão firme e zero transparência. Sua densidade superior garante maior sustentação, resistência e ajuste modelador ao corpo.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 135,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-orchid/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO ORCHID</h2>
+        <div class="desc">O Conjunto Orchid em gramatura 310 é ideal para quem busca mais firmeza e segurança. Seu tecido encorpado oferece zero transparência, maior compressão e resistência superiores, garantindo sustentação e acabamento estruturado.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="bottom">
+          <div class="price">R$ 144,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-pool/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO POOL</h2>
+        <div class="desc">O Conjunto Pool é confeccionado em gramatura 310, oferecendo mais estrutura, compressão firme e zero transparência. Desenvolvido para quem busca maior sustentação e segurança, proporciona ajuste encorpado ao corpo com excelente resistência.</div>
+        <ul><li>Gramatura 310 mais encorpada</li><li>Zero transparência</li><li>Compressão firme e modeladora</li><li>Alta resistência e durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="bottom">
+          <div class="price">R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-salace/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO SALACE</h2>
+        <div class="desc">Produzido em poliamida 260, o Conjunto Salace oferece elasticidade confortável e estrutura leve, sendo uma excelente escolha para quem prefere tecidos mais flexíveis e com toque suave.</div>
+        <ul><li>Poliamida 260 (gramatura intermediária leve)</li><li>Elasticidade que acompanha os movimentos</li><li>Toque macio e agradável na pele</li><li>Modelagem funcional e confortável</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 108,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-shells/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO SHELLS</h2>
+        <div class="desc">O Conjunto Shells é confeccionado em gramatura 310, oferecendo mais estrutura, compressão firme e zero transparência. Sua densidade superior garante maior sustentação, resistência e ajuste modelador ao corpo.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL CLARO</span><span class="chip">AZUL ESCURO</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 144,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-spring/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO SPRING</h2>
+        <div class="desc">Desenvolvido em gramatura 310, o Conjunto Spring proporciona tecido mais denso, compressão equilibrada e total segurança contra transparência. Entrega firmeza, resistência e efeito modelador com excelente ajuste ao corpo.</div>
+        <ul><li>Gramatura 310 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 147,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-tulip-69e27bfc31c62/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO TULIP</h2>
+        <div class="desc">O Conjunto Tulip combina praticidade e estilo em uma proposta versátil para o dia a dia. Desenvolvido em poliamida 260, proporciona toque macio, elasticidade confortável e excelente adaptação ao corpo.</div>
+        <ul><li>Poliamida 260 leve e confortável</li><li>Ajuste que valoriza o corpo sem excesso de compressão</li><li>Ótima mobilidade</li><li>Tecido respirável</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">GG</span></div>
+        <div class="bottom">
+          <div class="price">R$ 120,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">CONJUNTOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-wave/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO WAVE</h2>
+        <div class="desc">O Conjunto Wave em gramatura 310 é ideal para quem busca mais firmeza e segurança. Seu tecido encorpado oferece zero transparência, maior compressão e resistência superiores, garantindo sustentação e acabamento estruturado.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 129,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-waves/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO WAVES</h2>
+        <div class="desc">O Conjunto Waves é ideal para quem procura conforto aliado a um tecido mais estruturado. Desenvolvido em poliamida 310, oferece toque suave, excelente elasticidade e zero transparência, proporcionando mais confiança durante o uso.</div>
+        <ul><li>Tecido mais estruturado com ótima cobertura</li><li>Zero transparência</li><li>Elasticidade que garante liberdade de movimento</li><li>Fácil de combinar com diversas peças</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span><span class="chip">ROSA CLARO</span><span class="chip">VINHO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 144,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page divider">
+      <div class="num">Seção 02</div>
+      <h1>MACAQUITOS E MACACÕES</h1>
+      <div class="line"></div>
+      <p>Praticidade e caimento perfeito em peça única.</p>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">MACAQUITOS E MACACÕES</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/macacao-lily/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>MACACÃO LILY</h2>
+        <div class="desc">O Macacão Lily é confeccionado em gramatura 310, oferecendo mais estrutura, compressão firme e zero transparência. Sua densidade superior garante maior sustentação, resistência e ajuste modelador ao corpo.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 144,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/macaquito-compact/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>MACAQUITO COMPACT</h2>
+        <div class="desc">O Macaquito Compact em gramatura 310 é ideal para quem busca mais firmeza e segurança. Seu tecido encorpado oferece zero transparência, maior compressão e resistência superiores, garantindo sustentação e acabamento estruturado.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 129,60</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">MACAQUITOS E MACACÕES</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/macaquito-explore/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>MACAQUITO EXPLORE</h2>
+        <div class="desc">O Macaquito Explore é confeccionado em gramatura 310, oferecendo mais estrutura, compressão firme e zero transparência. Sua densidade superior garante maior sustentação, resistência e ajuste modelador ao corpo.</div>
+        <ul><li>Gramatura 310 encorpada</li><li>Zero transparência</li><li>Compressão firme</li><li>Alta durabilidade</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">VERDE CLARO</span><span class="chip">VERDE ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">GG</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price"><span class="from">A partir de</span>R$ 126,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/macaquito-grotta/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>MACAQUITO GROTTA</h2>
+        <div class="desc">Desenvolvido em gramatura 310, o Macaquito Grotta proporciona tecido mais denso, compressão equilibrada e total segurança contra transparência. Entrega firmeza, resistência e efeito modelador com excelente ajuste ao corpo.</div>
+        <ul><li>Gramatura 310 de alta densidade</li><li>Zero transparência mesmo sob alongamento</li><li>Compressão mais intensa</li><li>Estrutura firme e resistente</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">LAVANDA</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 135,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">MACAQUITOS E MACACÕES</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/macaquito-makima/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>MACAQUITO MAKIMA</h2>
+        <div class="desc">O Macaquito Makima combina praticidade e estilo em uma proposta versátil para o dia a dia. Desenvolvido em poliamida 260, proporciona toque macio, elasticidade confortável e excelente adaptação ao corpo.</div>
+        <ul><li>Poliamida 260 leve e confortável</li><li>Ajuste que valoriza o corpo sem excesso de compressão</li><li>Ótima mobilidade</li><li>Tecido respirável</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">MARROM</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 108,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page divider">
+      <div class="num">Seção 03</div>
+      <h1>BLUSAS E JAQUETAS</h1>
+      <div class="line"></div>
+      <p>Camadas versáteis para compor looks de treino e do dia a dia.</p>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">BLUSAS E JAQUETAS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/blusao-tuller/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>BLUSÃO TULLER</h2>
+        <div class="desc">O Blusão Tuller foi desenvolvido para oferecer conforto e desempenho em todas as situações. Produzido em tecido Dryfit com poliamida, proporciona excelente respirabilidade, toque suave e elasticidade que acompanha os movimentos do corpo.</div>
+        <ul><li>Tecnologia Dryfit que favorece a evaporação do suor</li><li>Alta respirabilidade para maior bem-estar</li><li>Tecido leve e confortável com boa elasticidade</li><li>Recortes estratégicos que valorizam o caimento</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">BRANCO</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 54,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/jaqueta-cloud/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>JAQUETA CLOUD</h2>
+        <div class="desc">A Jaqueta Cloud combina praticidade e estilo em uma proposta versátil para o dia a dia. Desenvolvida em poliamida 260, proporciona toque macio, elasticidade confortável e excelente adaptação ao corpo.</div>
+        <ul><li>Poliamida 260 leve e confortável</li><li>Ajuste que valoriza o corpo sem excesso de compressão</li><li>Ótima mobilidade</li><li>Tecido respirável</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">P</span></div>
+        <div class="bottom">
+          <div class="price">R$ 99,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page divider">
+      <div class="num">Seção 04</div>
+      <h1>PLUS SIZE</h1>
+      <div class="line"></div>
+      <p>O mesmo padrão de qualidade e estilo, em todos os tamanhos.</p>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">PLUS SIZE</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-extreme/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO EXTREME</h2>
+        <div class="desc">O Conjunto Extreme em gramatura 310 é ideal para quem busca mais firmeza e segurança. Seu tecido encorpado oferece zero transparência, maior compressão e resistência superiores, garantindo sustentação e acabamento estruturado.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">AZUL ESCURO</span><span class="chip">MARROM</span><span class="chip">PRETO</span><span class="chip">VERDE ESCURO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G1</span></div>
+        <div class="bottom">
+          <div class="price">R$ 135,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/conjunto-rising-6a91f493a48ee/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>CONJUNTO RISING</h2>
+        <div class="desc">O Conjunto Rising em gramatura 310 é ideal para quem busca mais firmeza e segurança. Seu tecido encorpado oferece zero transparência, maior compressão e resistência superiores, garantindo sustentação e acabamento estruturado.</div>
+        <ul><li>Gramatura 310 superior</li><li>Zero transparência</li><li>Alta compressão</li><li>Maior resistência</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G1</span></div>
+        <div class="bottom">
+          <div class="price">R$ 162,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page divider">
+      <div class="num">Seção 05</div>
+      <h1>NKFIT MASCULINO</h1>
+      <div class="line"></div>
+      <p>Performance e conforto para o treino masculino.</p>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">NKFIT MASCULINO</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/blusa-masc-fury/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>BLUSA MASC. FURY (Camisa Masculina Fury)</h2>
+        <div class="desc">A Camisa Masculina Fury foi desenvolvida para oferecer conforto e desempenho em todas as situações. Produzida em tecido Dryfit com poliamida, proporciona excelente respirabilidade, toque suave e elasticidade que acompanha os movimentos do corpo.</div>
+        <ul><li>Tecnologia Dryfit que favorece a evaporação do suor</li><li>Alta respirabilidade para maior bem-estar</li><li>Tecido leve e confortável com boa elasticidade</li><li>Recortes estratégicos que valorizam o caimento</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="bottom">
+          <div class="price">R$ 81,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/short-masculino/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>SHORT MASCULINO MONSTER</h2>
+        <div class="desc">Perfeito para quem busca conforto e praticidade no dia a dia, o Short Monster é a escolha ideal para compor looks versáteis e funcionais. Desenvolvido em poliéster 180, oferece toque macio, ótima elasticidade e ajuste ao corpo sem limitar os movimentos.</div>
+        <ul><li>Modelagem que valoriza o corpo com conforto</li><li>Fácil de combinar com diversas peças</li><li>Disponível em cores versáteis</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">M</span></div>
+        <div class="bottom">
+          <div class="price">R$ 81,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">NKFIT MASCULINO</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/short-masculino-tita/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>SHORT MASCULINO TITÃ</h2>
+        <div class="desc">O Short Masculino Titã no tecido tactel é ideal para quem busca conforto e funcionalidade em qualquer rotina. Confeccionado em tecido Tactel com poliamida, oferece excelente respirabilidade, toque leve e elasticidade que se adapta ao corpo sem limitar os movimentos.</div>
+        <ul><li>Tecnologia Tactel que ajuda a manter a pele seca</li><li>Alta respirabilidade para maior conforto térmico</li><li>Tecido leve com elasticidade</li><li>Recortes modernos que valorizam o visual</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="bottom">
+          <div class="price">R$ 81,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/short-zupper/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>SHORT MASCULINO ZUPPER</h2>
+        <div class="desc">O Short Masculino Zupper foi desenvolvido para oferecer conforto e desempenho em todas as situações. Produzido em tecido Dryfit com poliamida, proporciona excelente respirabilidade, toque suave e elasticidade que acompanha os movimentos do corpo.</div>
+        <ul><li>Tecnologia Dryfit que favorece a evaporação do suor</li><li>Alta respirabilidade para maior bem-estar</li><li>Tecido leve e confortável com boa elasticidade</li><li>Recortes estratégicos que valorizam o caimento</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">PRETO</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">G</span></div>
+        <div class="bottom">
+          <div class="price">R$ 90,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+    <div class="page divider">
+      <div class="num">Seção 06</div>
+      <h1>ACESSÓRIOS</h1>
+      <div class="line"></div>
+      <p>Para completar a rotina fitness com praticidade.</p>
+    </div>
+    <div class="page prod-page">
+      <div class="pagehead"><span class="catname">ACESSÓRIOS</span><span class="brandmini">Japa Import &times; NKFIT</span></div>
+      <div class="grid2">
+    <div class="card">
+      <div class="imgbox"><div class="imgwrap"><img src="../assets/produtos/garrfa-up/01.jpg" loading="lazy"><div class="imgtag">Foto ilustrativa da modelagem</div></div></div>
+      <div class="info">
+        <h2>GARRAFA UP</h2>
+        <div class="desc">Garrafa esportiva NKFIT, 800ml, altura 29cm. Ideal para acompanhar treinos e o dia a dia com praticidade e estilo.</div>
+        <ul><li>Capacidade: 800ml</li><li>Altura: 29cm</li></ul>
+        <div class="chips"><span class="chiplabel">Cores</span><span class="chip">TANGERINA</span></div>
+        <div class="chips"><span class="chiplabel">Tamanhos</span><span class="chip">UNICO</span></div>
+        <div class="bottom">
+          <div class="price">R$ 99,00</div>
+          <div class="cta">Peça pelo Direct da Japa Import</div>
+        </div>
+      </div>
+    </div></div>
+      <div class="pagefoot">Japa Import &middot; Coleção NKFIT</div>
+    </div>
+<div class="page backcover">
+  <h1 class="brand">JAPA <span>IMPORT</span></h1>
+  <p>Gostou de alguma peça? Fale com a gente e garanta a sua antes que acabe o estoque.
+  Peças NKFIT selecionadas com cuidado para você treinar com estilo.</p>
+  <div class="cta-final">Consulte disponibilidade com a Japa Import</div>
+</div>
+
+</body>
+</html>
